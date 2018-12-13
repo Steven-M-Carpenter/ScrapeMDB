@@ -1,11 +1,13 @@
 
+
+
 #articlepage {
   color: white;
   padding-top: 25px;
   /* min-height: 1px; */
   min-height: 50%;
-  border-top: 3px solid yellow;
-  border-bottom: 3px solid yellow;
+  border-top: 6px solid yellow;
+  border-bottom: 6px solid yellow;
   background-color: black;
   /* background-image: url(../images/newsprint.jpg); */
   /* background-size: cover; */

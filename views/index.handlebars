@@ -1,0 +1,40 @@
+<link rel="stylesheet" href="/styles/index.css" media="screen" title="no title" charset="utf-8">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand mr-5" href="/">
+    <img class="mr-3" id="navlogo" src="/images/RR_Brand_Logo.JPG" width="35" height="25" alt="app logo">
+    Reuters Reader</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        {{!-- <a class="nav-link mr-3" href="/">Home</a> --}}
+        {{!-- <a class="nav-link mr-3" id="homeRoute" href="#">Home</a> --}}
+        <button class="btn btn-sm btn-light mt-1 mx-3" id="homeButton" type="button">Home</button> 
+      </li>
+      <li class="nav-item">
+        {{!-- <a class="nav-link mr-3" href="/saved">Saved</a> --}}
+        {{!-- <a class="nav-link mr-3" id="savedRoute" href="#">Saved</a> --}}
+        <button class="btn btn-sm btn-light mt-1 mx-3" id="savedNews" type="button">Saved</button> 
+      </li>
+      <li class="nav-item">
+        {{!-- <a class="nav-link mr-3" href="/api/load">Load News</a> --}}
+        {{!-- <a class="nav-link mr-3" id="loadNews" href="/api/load">Load News</a> --}}
+        <button class="btn btn-sm btn-success mt-1 mx-3" id="loadNews" type="button">Load News</button> 
+      </li>
+      <li class="nav-item">
+        {{!-- <a class="nav-link mr-3" href="/api/load">Load News</a> --}}
+        {{!-- <a class="nav-link mr-3" id="clearNews" href="/api/clear">Clear News</a> --}}
+        <button class="btn btn-sm btn-danger mt-1 mx-3" id="clearNews" type="button">Clear News</button> 
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container-fluid" id="articlepage">
+</div>
+
+<script type="text/javascript" src="/js/index.js"></script>
