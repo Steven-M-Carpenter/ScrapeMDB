@@ -9,17 +9,7 @@ var NoteSchema = new Schema({
   // `title` is of type String
   title: String,
   // `body` is of type String
-  body: String,
-  // `saved` or not
-  saved: {
-    type: Boolean,
-    default: false
-  }
-  // `article` is the link to the base article
-  // article: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "Article"
-  // }
+  body: String
 });
 
 // This creates our model from the above schema, using mongoose's model method

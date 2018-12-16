@@ -1,34 +1,22 @@
 
 .scrapeTitle {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .scrapeSummary {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .scrapeLink {
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   font-size: 12px;
-}
-
-.checkSave {
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .inputArea {
   margin-bottom: 10px;
-}
-
-#saveBtn {
-  font-size: 12px;
-  font-weight: bold;
-  padding: 2px;
-  background-color: yellow;
 }
 
 .commentdiv {
@@ -42,47 +30,43 @@
 }
 
 
+
+#saveBtn {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px;
+  background-color: yellow;
+}
+
 #articlepage {
   color: white;
   padding-top: 25px;
-  /* min-height: 1px; */
   min-height: 50%;
   border-top: 6px solid yellow;
   border-bottom: 6px solid yellow;
   border-right: 3px solid yellow;
   background-color: black;
-  /* background-image: url(../images/newsprint.jpg); */
-  /* background-size: cover; */
 }
-
 
 #notes {
   color: white;
   padding-top: 25px;
-  /* min-height: 1px; */
   min-height: 100%;
   border-top: 6px solid yellow;
   border-bottom: 6px solid yellow;
   border-left: 3px solid yellow;
   background-color: black;
-  /* background-image: url(../images/newsprint.jpg); */
-  /* background-size: cover; */
 }
-
 
 #oldnotes {
   color: white;
   padding-top: 25px;
-  /* min-height: 1px; */
   min-height: 100%;
   border-top: 6px solid yellow;
   border-bottom: 6px solid yellow;
   border-left: 3px solid yellow;
   background-color: darkblue;
-  /* background-image: url(../images/newsprint.jpg); */
-  /* background-size: cover; */
 }
-
 
 #noteTitle {
   text-align: center;

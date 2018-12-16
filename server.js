@@ -6,8 +6,6 @@ var cheerio = require("cheerio");
 
 // Require all models
 var db = require('./models')
-// var dbA = require("./models/Article");
-// var dbN = require("./models/Note");
 
 // Initialize Express
 var app = express();
@@ -29,13 +27,6 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
-
-
-// Routes
-// require("./routes/apiRoutes")(app);
-// require("./routes/htmlRoutes")(app);
-// Routes
-//var routes = require("./routes");
 
 
 // Connect to the Mongo DB
@@ -60,7 +51,6 @@ app.get("/news", function (req, res) {
   .then(function(dbArticle) {
     // If we were able to successfully find Articles, send them back to the client
     res.json(dbArticle);
-    // console.log(dbArticle);
   })
   .catch(function(err) {
     // If an error occurred, send it to the client
@@ -74,7 +64,6 @@ app.get("/news", function (req, res) {
 //***************************************************************************************/
 app.post("/api/clear", function (req, res) {
   db.Article.deleteMany({})
-  // db.Note.deleteMany({ saved: true })
   .then(function(dbArticle) {
       res.render("index");
   })
@@ -82,15 +71,6 @@ app.post("/api/clear", function (req, res) {
     // If an error occurred, send it to the client
     res.json(err);
   });
-  // db.Note.deleteMany({})
-  // // db.Note.deleteMany({ saved: true })
-  // .then(function(dbNote) {
-  //     res.render("index");
-  // })
-  // .catch(function(err) {
-  //   // If an error occurred, send it to the client
-  //   res.json(err);
-  // });
 });
 
 
@@ -119,14 +99,11 @@ app.post("/api/load", function (req, res) {
         .text();
 
       // Create a new Article using the `result` object built from scraping
-      // db.Article.create(result)
       db.Article.create(result)
         .then(function (dbArticle) {
-          console.log(dbArticle);
           res.json(dbArticle);
         })
         .catch(function (err) {
-          console.log(err);
         })
     });
   });
@@ -138,7 +115,6 @@ app.post("/api/load", function (req, res) {
 //********************************************************************************************************/
 app.get("/articles/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  console.log("incoming ID = " + req.params.id);
   db.Article.find({ _id: req.params.id })
     // ..and populate all of the notes associated with it
     .populate("note")
@@ -158,19 +134,15 @@ app.get("/articles/:id", function(req, res) {
 //********************************************************************************************************/
 app.get("/notes/:id", function(req, res) {
   // Using the id passed in the id parameter, prepare a query that finds the matching one in our db...
-  console.log("incoming ID = " + req.params.id);
-  console.log("running db.Note.find");
   db.Note.find({ article: req.params.id })
     // ..and populate all of the notes associated with it
     .populate("article")
     .then(function(dbNote) {
       // If we were able to successfully find an Article with the given id, send it back to the client
-      console.log("The note was found");
       res.json(dbNote);
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
-      console.log("The note was not found");
       res.json(err);
     });
 });
@@ -183,8 +155,6 @@ app.post("/api/articles/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
   db.Note.create(req.body)
     .then(function(dbNote) {
-      console.log("passed id = " + req.params.id);
-      console.log("req.body#2 = " + JSON.stringify(req.body));
       // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
       // { new: true } tells the query that we want it to return the updated Article -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
@@ -208,8 +178,6 @@ app.post("/api/save/article/:id", function(req, res) {
   // Create a new note and pass the req.body to the entry
   db.Article.update(req.body)
     .then(function(dbArticle) {
-      console.log("passed id = " + req.params.id);
-      console.log("req.body#2 = " + JSON.stringify(req.body));
       // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
       // { new: true } tells the query that we want it to return the updated Article -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
